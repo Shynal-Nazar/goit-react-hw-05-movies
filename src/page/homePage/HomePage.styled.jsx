@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 export const GridContainer = styled.div`
   padding: 0px 30px;
   margin: 0px auto;
-  background-color: yellow;
+  background-color: white;
 `;
 
 export const GridList = styled.ul`
@@ -20,9 +20,9 @@ export const GalleryCard = styled.li`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #253334;
+  background-color: #413e3e;
   border-radius: 10px;
-  border: 5px solid grey;
+  border: 5px solid black;
   :hover {
     cursor: pointer;
     transform: scale(1.05) translateY(-5px);
@@ -55,8 +55,9 @@ export const CardTitle = styled.h2`
 
 export const CardRate = styled.span`
   padding: 0 10px;
+  margin-bottom: 5px;
   margin-left: 10px;
-  background-color: #ff6b08;
+  background-color: #ef0d0d;
   color: #fff;
   border-radius: 5px;
 `;

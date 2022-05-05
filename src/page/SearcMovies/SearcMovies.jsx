@@ -2,7 +2,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { getMovieByQuery } from 'Api/Api';
 import { useEffect, useState } from 'react';
 import { useSearchParams, useLocation } from 'react-router-dom';
-//import noPoster from '../../images/noposter.jpg';
+import noPoster from '../../imgages/images.jpg';
 import {
   GridList,
   GalleryCard,
@@ -14,7 +14,7 @@ import {
   CardRate,
 } from 'page/homePage/HomePage.styled';
 import { Form, Input, Button } from './SearcMovies.styled';
-import { Link } from 'content/Content.styled';
+import { Link } from 'layout/Content.styled';
 
 export default function Movies() {
   const [movies, setMovies] = useState([]);
@@ -105,7 +105,7 @@ export default function Movies() {
                       src={
                         poster_path
                           ? `https://image.tmdb.org/t/p/w500/${poster_path}`
-                          : 'noPoster'
+                          : noPoster
                       }
                     />
                   </GalleryImg>

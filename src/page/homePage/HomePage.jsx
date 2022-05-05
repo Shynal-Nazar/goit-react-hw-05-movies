@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { getTrendingMovies } from 'Api/Api';
-import { Link } from 'content/Content.styled';
+import { Link } from 'layout/Content.styled';
 import {
   GridList,
   GalleryCard,
@@ -12,7 +12,7 @@ import {
   CardTitle,
   CardRate,
 } from './HomePage.styled';
-//import noPoster from '../../images/noposter.jpg';
+import noPoster from '../../imgages/images.jpg';
 
 export default function HomePage(movie) {
   const [movies, setMovies] = useState([]);
@@ -34,7 +34,7 @@ export default function HomePage(movie) {
                   src={
                     item.poster_path
                       ? `https://image.tmdb.org/t/p/w500/${item.poster_path}`
-                      : 'noPoster'
+                      : noPoster
                   }
                 />
               </GalleryImg>
