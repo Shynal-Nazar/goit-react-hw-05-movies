@@ -15,14 +15,11 @@ export const App = () => {
       <ContentPage />
       <Suspense fallback={<Loader />}>
         <Routes>
-          <Route index element={<HomePage />}></Route>
+          <Route index element={<HomePage />} />
           <Route path="movies" exact element={<Movies />} />
           <Route path="movies/:moviesId" element={<MovieAbout />}>
-            <Route
-              path="movies/:moviesId/reviews"
-              element={<Reviews />}
-            ></Route>
-            <Route path="movies/:moviesId/cast" element={<Cast />}></Route>
+            <Route path="movies/:moviesId/reviews" element={<Reviews />} />
+            <Route path="movies/:moviesId/cast" element={<Cast />} />
           </Route>
           <Route path="*" element={<HomePage />} />
         </Routes>

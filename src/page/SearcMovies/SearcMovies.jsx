@@ -38,7 +38,7 @@ export default function Movies() {
   }, [searchParam]);
 
   useEffect(() => {
-    if (!searchQuery) {
+    if (!searchQuery || searchQuery.match(/^[ ]+$/)) {
       return;
     }
     setStatus('pending');
@@ -83,6 +83,7 @@ export default function Movies() {
           type="text"
           value={inputValue}
           onChange={getInputValue}
+          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
         />
 
         <Button type="submit" onClick={handleSubmit}>
