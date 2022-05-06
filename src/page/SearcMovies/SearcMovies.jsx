@@ -38,10 +38,11 @@ export default function Movies() {
   }, [searchParam]);
 
   useEffect(() => {
-    if (!searchQuery || searchQuery.match(/^[ ]+$/)) {
+    if (!searchQuery) {
       return;
     }
     setStatus('pending');
+
     getMovieByQuery(searchQuery).then(response => {
       if (response.length === 0) {
         Notify.failure('Write the correct Movie name,please', {
@@ -59,6 +60,7 @@ export default function Movies() {
   }, [searchQuery]);
 
   const handleSubmit = e => {
+    e.stopPropagation();
     e.preventDefault();
     setSearchQuery(inputValue);
     if (inputValue.trim() === '') {
@@ -71,24 +73,21 @@ export default function Movies() {
       return;
     }
 
-    setSearchParam({ query: inputValue });
+    setSearchParam({ query: inputValue.trim() });
     setInputValue('');
   };
 
   return (
     <>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Input
           placeholder="Search movie"
           type="text"
           value={inputValue}
           onChange={getInputValue}
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
         />
 
-        <Button type="submit" onClick={handleSubmit}>
-          Search
-        </Button>
+        <Button type="submit">Search</Button>
       </Form>
       <GridContainer>
         {status === 'resolved' && (
